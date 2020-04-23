@@ -1,0 +1,12 @@
+.lead__title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 93px;
+    text-align: center;
+    max-width: 782px;
+    margin: 0 auto;
+
+    color: #FFFFFF;
+}

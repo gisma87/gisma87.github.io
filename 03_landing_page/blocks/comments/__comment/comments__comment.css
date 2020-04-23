@@ -1,0 +1,8 @@
+.comments__comment {
+    width: 382px;
+    margin-right: 19px;
+}
+
+.comments__comment:last-child {
+    margin-right: 0;
+}

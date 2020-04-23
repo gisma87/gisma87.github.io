@@ -1,0 +1,18 @@
+@import url('__link/__link.css');
+@import url('__copyright/__copyright.css');
+@import url('nav/nav.css');
+
+.footer {
+    max-width: 1184px;
+    width: 80vw;
+    padding-top: 160px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+
+
+
+

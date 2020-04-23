@@ -1,0 +1,13 @@
+@import url("header__lang.css");
+@import url("../text.css");
+@import url("__link/header__link.css");
+@import url("__list/header__list.css");
+
+.header {
+  max-width: 1184px;
+  width: 80vw;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

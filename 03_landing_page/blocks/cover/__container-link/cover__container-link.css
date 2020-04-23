@@ -1,0 +1,18 @@
+.cover__container-link {
+    background: url("../../../images/cover.jpg") center/100%,
+    rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
+    width: 1184px;
+    height: 594px;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cover__container-link:hover {
+    background: url("../../../images/cover.jpg") center/100%,
+    rgba(0,0,0,0.8);
+}
