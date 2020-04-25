@@ -8,6 +8,6 @@
 
 [04 adaptive-layout](https://gisma87.github.io/04_adaptive-layout/ "домашняя работа apaptive-layout") - цель спринта: адаптивная вёрстка по макету
 
-[07 sprint - js](https://gisma87.github.io/07_sprint_js__metro/ "домашняя работа сайт с js") - цель спринта: закрепить знания JS.
+[07 sprint - js](https://gisma87.github.io/07_sprint_js__metro/ "домашняя работа сайт с js") - цель спринта: закрепить: JavaScript ES6, CSS(Flexbox + Grid), HTML, БЭМ.
 
 [09 sprint - js](gisma87.github.io/09_sprint_js "подключаем проект 07 к серверу") - рефакторинг проекта 07 - асинхронность, подключение к API, классы.
