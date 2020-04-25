@@ -6,7 +6,8 @@
 Цель работы: освоить семантическую вёрстку, БЭМ.
 * * * * *
 
-[03 sprint - landing-page](https://gisma87.github.io/03_landing_page/ "Одностраничный сайт") - **Стек:** HTML5, CSS3(Flexbox + Grid), БЭМ. Цель работы: освоить семантическую вёрстку по макету по принципу perfect pixel.
+[03 sprint - landing-page](https://gisma87.github.io/03_landing_page/ "Одностраничный сайт") - **Стек:** HTML5, CSS3(Flexbox + Grid), БЭМ.   
+Цель работы: освоить семантическую вёрстку по макету по принципу perfect pixel.
 * * * * *
 
 [04 adaptive-layout](https://gisma87.github.io/04_adaptive-layout/ "адаптивная вёрстка по макету") - **Стек:** HTML5, CSS3(Flexbox + Grid), БЭМ.  
