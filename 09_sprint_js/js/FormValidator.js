@@ -4,6 +4,7 @@ class FormValidator {
         this.errorMessages = errorMessages;
         form.addEventListener('input', this.setEventListeners.bind(this));
     }
+
     resetError(errorElement) {
         errorElement.textContent = '';
     }
@@ -13,15 +14,15 @@ class FormValidator {
 
         if (!element.checkValidity()) {
             if (element.validity.valueMissing) {
-                errorElement.textContent = errorMessages.valueMissing;
+                errorElement.textContent = this.errorMessages.valueMissing;
                 return;
             }
             if (element.validity.typeMismatch) {
-                errorElement.textContent = errorMessages.typeMismatch;
+                errorElement.textContent = this.errorMessages.typeMismatch;
                 return;
             }
             if (element.validity.tooShort || element.validity.tooLong) {
-                errorElement.textContent = errorMessages.tooShort;
+                errorElement.textContent = this.errorMessages.tooShort;
                 return;
             }
             errorElement.textContent = element.validationMessage;
