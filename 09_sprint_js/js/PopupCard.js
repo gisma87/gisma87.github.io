@@ -1,13 +1,12 @@
 class PopupCard {
-    constructor(popupName, cardList, card, createCard, renderLoadingPopupCard) {
-        this.button = document.querySelector('.user-info__button');
+    constructor(popupName, card, createCard, renderLoadingPopupCard) {
+        this.buttonOpen = document.querySelector('.user-info__button');
         this.card = card;
         this.createCard = createCard;
-        this.cardList = cardList;
         this.renderLoadingPopupCard = renderLoadingPopupCard;
         this.popupName = popupName;
         this.form = this.popupName.querySelector('form');
-        this.button.addEventListener('click', this.open.bind(this));
+        this.buttonOpen.addEventListener('click', this.open.bind(this));
         this.popupName.addEventListener('click', this.close.bind(this));
         document.addEventListener('keydown', this.close.bind(this));
         this.form.addEventListener('submit', this.addCardFromForm.bind(this));
@@ -52,12 +51,12 @@ class PopupCard {
         errorElements.forEach(errorElement => { errorElement.textContent = '' });
     }
 
-    addCardFromForm() {
+    addCardFromForm(event) {
         event.preventDefault();
         const button = this.form.querySelector('.popup__button');
         if (this.popupName.matches('#popupNewPlace')) {
             if (button.matches('.popup__button_active')) {
-                renderLoadingPopupCard(true);
+                this.renderLoadingPopupCard(true);
                 const { name, link } = this.form.elements;
                 this.createCard(name.value, link.value);
             }

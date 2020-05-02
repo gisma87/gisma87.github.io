@@ -20,7 +20,7 @@ class UserInfo {
         event.preventDefault();
         const button = this.form.querySelector('.popup__button');
         if (button.matches('.popup__button_active')) {
-            renderLoading(true);
+            this.renderLoading(true);
             const [name, about] = this.inputs;
             this.updateUser(name.value, about.value);
         }

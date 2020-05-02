@@ -767,6 +767,17 @@ a:hover {
     }
 }
 
+@media (min-width: 673px) and (max-width: 767px) {
+    .feinman__title {
+        margin-left: 46vw;
+        width: 422px;
+    }
+
+    .feinman__subtitle {
+        margin-left: 45vw;
+    }
+}
+
 @media (max-width: 500px) {
     .header__main-illustration {
         height: 100vw;
@@ -819,17 +830,6 @@ a:hover {
     .khan__book-pic {
         height: 120vw;
         width: 95vw;
-    }
-}
-
-@media (min-width: 673px) and (max-width: 767px) {
-    .feinman__title {
-        margin-left: 46vw;
-        width: 422px;
-    }
-
-    .feinman__subtitle {
-        margin-left: 45vw;
     }
 }
 

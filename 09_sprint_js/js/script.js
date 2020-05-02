@@ -11,8 +11,8 @@ const popupNewPlace = document.querySelector('#popupNewPlace');
 const userInfoName = document.querySelector('.user-info__name');
 const userInfoJob = document.querySelector('.user-info__job');
 const popupProfileNode = document.querySelector('#popupProfile');
-const validFormNewPlace = new FormValidator(popupNewPlace.querySelector('form'), errorMessages);
-const validFormProfile = new FormValidator(popupProfileNode.querySelector('form'), errorMessages);
+new FormValidator(popupNewPlace.querySelector('form'), errorMessages);
+new FormValidator(popupProfileNode.querySelector('form'), errorMessages);
 const cardList = new CardList(container);
 const api = new Api({
   baseUrl: 'https://praktikum.tk/cohort10',
@@ -191,14 +191,14 @@ function addAvatar(form) {
 
 
 const card = new Card('name', 'link', container, likeToggle, deleteCard);
-const popupCard = new PopupCard(popupNewPlace, cardList, card, createCard, renderLoadingPopupCard);
-const popupProfile = new PopupProfile(popupProfileNode, popupCard, userInfo);
-const popupImage = new PopupImage(imageContainer);
+const popupCard = new PopupCard(popupNewPlace, card, createCard, renderLoadingPopupCard);
+new PopupProfile(popupProfileNode, popupCard, userInfo);
+new PopupImage(imageContainer);
 
 // добавление аватара
 const popupAvatarNode = document.querySelector('#popupAvatar');
-const popupAvatar = new PopupAvatar(popupAvatarNode, popupCard, addAvatar);
-const validFormAvatar = new FormValidator(popupAvatarNode.querySelector('form'), errorMessages);
+new PopupAvatar(popupAvatarNode, popupCard, addAvatar);
+new FormValidator(popupAvatarNode.querySelector('form'), errorMessages);
 
 
 getUserInfo();
