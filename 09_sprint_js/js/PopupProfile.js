@@ -1,5 +1,7 @@
-class PopupProfile {
+class PopupProfile extends Popup {
     constructor(popupName, popupCard, userInfo) {
+        super();
+
         this.userInfo = userInfo;
         this.popupCard = popupCard;
         this.button = document.querySelector('.user-info__button-edit');
@@ -10,9 +12,7 @@ class PopupProfile {
     }
 
     open() {
-        this.popupCard._setStatusPopup(this.popupName);
-        this.popupCard._setButtonDefault.bind(this)();
-        this.popupCard._resetErrorDefault.bind(this)();
+        super.open();
         this.userInfo.setUserInfo();
     }
 }
