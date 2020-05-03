@@ -3,5 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/04_adaptive-layout" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/parallax_01" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/parallax_1" vcs="Git" />
   </component>
 </project>
