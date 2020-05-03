@@ -1,9 +1,8 @@
 class PopupCard extends Popup{
-    constructor(popupName, card, createCard, renderLoadingPopupCard) {
+    constructor(popupName, createCard, renderLoadingPopupCard) {
         super();
 
         this.buttonOpen = document.querySelector('.user-info__button');
-        this.card = card;
         this.createCard = createCard;
         this.renderLoadingPopupCard = renderLoadingPopupCard;
         this.popupName = popupName;

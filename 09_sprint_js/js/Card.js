@@ -1,41 +1,61 @@
 class Card {
-    constructor(name, link, container, likeToggle, deleteCard) {
+    constructor(name, link, cardId, likeCounter, api) {
         this.name = name;
         this.link = link;
-        this.container = container;
-        this.likeToggle = likeToggle;
-        this.deleteCard = deleteCard;
+        this.cardId = cardId || '';
+        this.likeCounter = likeCounter || '';
+        this.api = api;
         this.popupImage = document.querySelector('#popupImage');
     }
 
     like(event) {
         const likeCount = event.target.closest('.place-card__likes').querySelector('.place-card__like-count');
         if (!event.target.matches('.place-card__like-icon_liked')) {
-            this.likeToggle(event.target, likeCount, true);
+            this.api.likeAdd(likeCount.dataset.id)
+                .then(result => {
+                    likeCount.textContent = result.likes.length;
+                    event.target.classList.add('place-card__like-icon_liked');
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         } else {
-            this.likeToggle(event.target, likeCount, false);
+            this.api.likeDel(likeCount.dataset.id)
+                .then(result => {
+                    likeCount.textContent = result.likes.length;
+                    event.target.classList.remove('place-card__like-icon_liked');
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     }
 
     remove(event) {
         if (confirm('Вы действительно хотите удалить эту карточку?')) {
             const likeCount = event.target.closest('.place-card').querySelector('.place-card__like-count');
-            this.deleteCard(likeCount);
+            this.api.cardDel(likeCount.dataset.id)
+                .then(() => {
+                    const placeCard = likeCount.closest('.place-card');
+                    container.removeChild(placeCard);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     }
 
-    create(name, link, likes, cardId) {
-        const tmpl = this.container.querySelector('#tmpl'); // тег template
+    create() {
+        const tmpl = document.getElementById('tmpl'); // тег template
         const fragment = (tmpl.content).cloneNode(true);
         const placeCardImage = fragment.querySelector('.place-card__image');
         const placeCardName = fragment.querySelector('.place-card__name');
-        const bglink = link;
         const likeCount = fragment.querySelector('.place-card__like-count');
-        likeCount.setAttribute('data-id', cardId);
-        likeCount.textContent = likes;
-        placeCardImage.style.backgroundImage = `url(${bglink})`;
-        placeCardName.textContent = name;
-        placeCardImage.setAttribute('data-url', bglink);
+        likeCount.setAttribute('data-id', this.cardId);
+        likeCount.textContent = this.likeCounter;
+        placeCardImage.style.backgroundImage = `url(${this.link})`;
+        placeCardName.textContent = this.name;
+        placeCardImage.setAttribute('data-url', this.link);
         const template = fragment.cloneNode(true);
         template.querySelector('.place-card__like-icon').addEventListener('click', this.like.bind(this));
         template.querySelector('.place-card__delete-icon').addEventListener('click', this.remove.bind(this));
