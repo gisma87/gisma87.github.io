@@ -24,23 +24,17 @@ class Card {
         }
     }
 
-    sanitizeHTML(str) {
-        const temp = document.createElement('div');
-        temp.textContent = str;
-        return temp.textContent;
-    }
-
     create(name, link, likes, cardId) {
         const tmpl = this.container.querySelector('#tmpl'); // тег template
         const fragment = (tmpl.content).cloneNode(true);
         const placeCardImage = fragment.querySelector('.place-card__image');
         const placeCardName = fragment.querySelector('.place-card__name');
-        const bglink = this.sanitizeHTML(link);
+        const bglink = link;
         const likeCount = fragment.querySelector('.place-card__like-count');
         likeCount.setAttribute('data-id', cardId);
         likeCount.textContent = likes;
         placeCardImage.style.backgroundImage = `url(${bglink})`;
-        placeCardName.textContent = this.sanitizeHTML(name);
+        placeCardName.textContent = name;
         placeCardImage.setAttribute('data-url', bglink);
         const template = fragment.cloneNode(true);
         template.querySelector('.place-card__like-icon').addEventListener('click', this.like.bind(this));
