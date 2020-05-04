@@ -146,25 +146,13 @@ function getUserInfo() {
         });
 }
 
-function addAvatar(form) {
-    api.setAvatar(form.querySelector('#avatar').value)
-        .then(result => {
-            userPhoto.style.backgroundImage = `url(${result.avatar})`;
-            form.reset();
-            popupAvatarNode.classList.remove('popup_is-opened');
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}
-
 const popupCard = new PopupCard(popupNewPlace, createCard, renderLoadingPopupCard);
 new PopupProfile(popupProfileNode, popupCard, userInfo);
 new PopupImage(imageContainer);
 
 // добавление аватара
 const popupAvatarNode = document.querySelector('#popupAvatar');
-new PopupAvatar(popupAvatarNode, popupCard, addAvatar);
+new PopupAvatar(popupAvatarNode, popupCard, api);
 new FormValidator(popupAvatarNode.querySelector('form'), errorMessages);
 
 
