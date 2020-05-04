@@ -1,9 +1,11 @@
 class Card {
-    constructor(name, link, cardId, likeCounter, api) {
+    constructor(name, link, cardId, likeCounter, idUser, idOwner, api) {
         this.name = name;
         this.link = link;
-        this.cardId = cardId || '';
-        this.likeCounter = likeCounter || '';
+        this.cardId = cardId;
+        this.likeCounter = likeCounter;
+        this.idUser = idUser;
+        this.idOwner = idOwner;
         this.api = api;
         this.popupImage = document.querySelector('#popupImage');
     }
@@ -52,9 +54,20 @@ class Card {
         const placeCardName = fragment.querySelector('.place-card__name');
         const likeCount = fragment.querySelector('.place-card__like-count');
         likeCount.setAttribute('data-id', this.cardId);
-        likeCount.textContent = this.likeCounter;
+        likeCount.textContent = this.likeCounter.length;
         placeCardImage.style.backgroundImage = `url(${this.link})`;
         placeCardName.textContent = this.name;
+
+        const likeIcon = fragment.querySelector('.place-card__like-icon');
+        this.likeCounter.forEach(item => {
+            if (item._id === this.idUser) {
+                likeIcon.classList.add('place-card__like-icon_liked');
+            }
+        });
+
+        const delBtn = fragment.querySelector('.place-card__delete-icon');
+        if(this.idOwner === this.idUser) delBtn.style.display = 'block';
+
         placeCardImage.setAttribute('data-url', this.link);
         const template = fragment.cloneNode(true);
         template.querySelector('.place-card__like-icon').addEventListener('click', this.like.bind(this));
