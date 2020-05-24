@@ -43,7 +43,7 @@ function createCard(name, link, cardId, likeCounter, idUser, idOwner, api) {
 
 const userInfo = new UserInfo(popupProfileNode, [userInfoName, userInfoJob], api, userPhoto);
 
-new PopupCard(popupNewCard, createCard, api);
+const popupCard = new PopupCard(popupNewCard, createCard, api);
 new PopupProfile(popupProfileNode, userInfo);
 
 const imageContainer = document.querySelector('#popupImage');
@@ -51,7 +51,7 @@ new PopupImage(imageContainer);
 
 // добавление аватара
 const popupAvatarNode = document.querySelector('#popupAvatar');
-new PopupAvatar(popupAvatarNode, api);
+new PopupAvatar(popupAvatarNode, popupCard, api);
 new FormValidator(popupAvatarNode.querySelector('form'), errorMessages);
 
 
