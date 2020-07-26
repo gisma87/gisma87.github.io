@@ -1,9 +1,0 @@
-@import url("../attraction/attraction.css");
-@import url("__container/additional__container.css");
-@import url("__subtitle/additional__subtitle.css");
-@import url("__title/additional__title.css");
-
-.additional {
-  max-width: 1184px;
-  padding-top: 112px;
-}
