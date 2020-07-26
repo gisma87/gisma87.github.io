@@ -1,3 +1,5 @@
+@import "animation.css";
+
 @keyframes rotation {
     from {
         transform: rotate(-15deg);
@@ -59,10 +61,13 @@
     z-index: 1;
 }
 
-.header__square-pic {
+.header__square-pic-container {
     position: absolute;
     top: 64px;
     right: 0;
+}
+
+.header__square-pic {
     background-color: #2f80ed;
     height: 568px;
     width: 568px;
@@ -147,6 +152,8 @@
     line-height: 1.15;
     font-size: 60px;
     font-weight: bold;
+    position: relative;
+    z-index: 2;
 }
 
 .section-subtitle {
@@ -156,6 +163,8 @@
     line-height: 34px;
     font-size: 24px;
     font-weight: normal;
+    position: relative;
+    z-index: 2;
 }
 
 .table {
