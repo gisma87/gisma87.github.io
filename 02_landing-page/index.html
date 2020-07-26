@@ -24,11 +24,12 @@
     <div class="header__square-pic-container fadeInRight animated go delay-250">
       <div class="header__square-pic"></div>
     </div>
-    <img
-            src="images/two_again.png"
-            alt="two_again"
-            class="header__main-illustration"
-    />
+    <picture>
+      <source type="image/webp" srcset="images/two_again.webp">
+      <source type="image/webp" srcset="images/two_again_mini.webp" media="(max-width: 1024px)">
+      <source srcset="images/two_again_mini.png" media="(max-width: 1024px)">
+      <img src="images/two_again.png" alt="two_again" class="header__main-illustration">
+    </picture>
   </header>
 
   <main class="content">
